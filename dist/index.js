@@ -1,9 +1,9 @@
-const ffi = require('ffi-napi');
+const ffi = require("ffi-napi");
 
-const libPath = './libceps.so';
+const libPath = "./libceps.so";
 
 const getNeighborhoodByCEP = ffi.Library(libPath, {
-  'get_cep_info': ['string', ['string']]
+  get_cep_info: ["string", ["string"]],
 }).get_cep_info;
 
-export { getNeighborhoodByCEP };
+module.exports = { getNeighborhoodByCEP };

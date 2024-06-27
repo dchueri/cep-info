@@ -14,7 +14,7 @@ pub extern "C" fn get_cep_info(cep_ptr: *const i8) -> *const i8 {
 
     let str_slice = c_str.to_str().expect("Invalid UTF-8 string");
 
-    if let Ok(file) = File::open("../ceps.csv") {
+    if let Ok(file) = File::open("./ceps.csv") {
         let reader = BufReader::new(file);
         for line in reader.lines() {
             if let Ok(record) = line {

@@ -1,6 +1,6 @@
 {
   "name": "cep-info",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Retorna informações sobre o CEP fornecido.",
   "main": "dist/index.js",
   "scripts": {

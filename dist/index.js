@@ -1,13 +1,25 @@
-const ffi = require("ffi-napi");
+const fs = require("fs");
 const path = require("path");
 
-const libPath = path.resolve(__dirname, "./libceps.so");
-const filePath = path.resolve(__dirname, "./ceps.csv");
+const getNeighborhoodByCEP = (cep) => {
+  try {
+    const filePath = path.resolve(__dirname, "./ceps.csv");
+    const data = fs.readFileSync(filePath, "utf8");
+    const lines = data.split("\n");
 
-const func = ffi.Library(libPath, {
-  get_cep_info: ["string", ["string", "string"]],
-}).get_cep_info;
+    for (let line of lines) {
+      const fields = line.split(";");
 
-const getNeighborhoodByCEP = (cep) => func(cep, filePath);
+      if (fields.length >= 4 && fields[0] === cep.replace("-", "")) {
+        return fields[3];
+      }
+    }
+
+    return "NOT_FOUND";
+  } catch (error) {
+    console.error("Error reading file:", error);
+    return "FILE_NOT_FOUND";
+  }
+};
 
 module.exports = { getNeighborhoodByCEP };

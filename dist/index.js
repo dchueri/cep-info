@@ -1,10 +1,15 @@
 const fs = require("fs");
 const path = require("path");
+const { getCache, addCache } = require("../lib/cache.js");
 
-function getAddressInfoByCEP(cep) {
+async function getAddressInfoByCEP(cep) {
   try {
     const filePath = path.resolve(__dirname, "./ceps.csv");
-    const data = fs.readFileSync(filePath, "utf8");
+    let data = await getCache();
+    if (!data) {
+      data = fs.readFileSync(filePath, "utf8");
+      await addCache(data);
+    }
     const lines = data.split("\n");
 
     for (let line of lines) {

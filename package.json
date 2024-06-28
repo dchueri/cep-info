@@ -1,6 +1,6 @@
 {
   "name": "cep-info",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Retorna informações sobre o CEP fornecido.",
   "main": "dist/index.js",
   "scripts": {
@@ -12,6 +12,13 @@
   "author": "",
   "license": "MIT",
   "files": [
-    "./dist"
-  ]
+    "./dist",
+    "./lib"
+  ],
+  "peerDependencies": {
+    "cache-manager": "^5.6.1"
+  },
+  "dependencies": {
+    "cache-manager": "^5.6.1"
+  }
 }

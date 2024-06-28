@@ -2,8 +2,8 @@ export default {
   input: "./index.js",
   output: {
     file: "./dist/index.js",
-    name: "getNeighborhoodByCEP",
+    name: "getAddressinfoByCEP",
     format: "esm",
   },
-  external: ["ffi-napi"],
+  external: ["cache-manager"],
 };

@@ -1,15 +1,21 @@
 {
   "name": "cep-info",
-  "version": "1.0.4",
-  "description": "Retorna informações sobre o CEP fornecido.",
+  "version": "1.0.5",
+  "description": "Retorna informações sobre o CEP fornecido 100% off-line.",
   "main": "dist/index.js",
   "scripts": {
     "build": "rollup -c"
   },
   "keywords": [
-    "cep"
+    "cep",
+    "ceps",
+    "offline"
   ],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dchueri/cep-info"
+  },
+  "author": "Diego Chueri Aragão <diegochueri@gmail.com>",
   "license": "MIT",
   "files": [
     "./dist",
